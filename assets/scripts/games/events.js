@@ -1,10 +1,12 @@
 const store = require('../store')
 
-const onInitGame = () => {
+const onInitGame = e => {
   store.moves = Array(9).fill('')
   store.player = 0
   store.over = false
   store.winner = null
+  $('.cell').attr('data-move', '')
+  $('.cell').removeClass('done')
 }
 
 const onCellClick = e => {
@@ -18,6 +20,11 @@ const onCellClick = e => {
     return
   }
   switchPlayer()
+}
+
+const onNewGame = e => {
+  e.preventDefault()
+  onInitGame()
 }
 
 const storeMove = e => {
@@ -90,5 +97,6 @@ const checkDone = () => {
 
 module.exports = {
   onInitGame,
-  onCellClick
+  onCellClick,
+  onNewGame
 }
