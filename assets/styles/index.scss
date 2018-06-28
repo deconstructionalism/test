@@ -23,16 +23,18 @@ body {
   align-items: center;
   justify-content: center;
 
-  &[data-move=""]:hover {
+  &[data-move=""]:hover:not(.done) {
     background-color: lightsalmon;
     cursor: pointer;
   }
 
-  &[data-move="x"]::after {
-    content: "X"
+  &[data-move="0"]::after {
+    content: "X";
+    color: red;
   }
 
-  &[data-move="o"]::after {
-    content: "O"
+  &[data-move="1"]::after {
+    content: "O";
+    color: blue;
   }
 }
