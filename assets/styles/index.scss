@@ -1,2 +1,38 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+body {
+  font-family: 'Lucida Sans', Verdana, sans-serif;
+  font-size: 16px;
+}
+
+#table {
+  margin: auto;
+  width: 60vw;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cell {
+  width: 20vw;
+  height: 20vw;
+  border: 0.01em solid black;
+  border-collapse: collapse;
+  font-size: 2em;
+  transition: background-color 0.1s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &[data-move=""]:hover {
+    background-color: lightsalmon;
+    cursor: pointer;
+  }
+
+  &[data-move="x"]::after {
+    content: "X"
+  }
+
+  &[data-move="o"]::after {
+    content: "O"
+  }
+}
